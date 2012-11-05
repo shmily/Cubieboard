@@ -40,9 +40,9 @@ Cubieboard arm-linux 移植
 3、制作可启动的SD卡
 -------------------
 
-参考自： 
-	>http://linux-sunxi.org/Bootable_SD_card  
-	>http://linux-sunxi.org/FirstSteps
+参考自:   
+	[wiki]:http://linux-sunxi.org/Bootable_SD_card   
+	[wiki]:http://linux-sunxi.org/FirstSteps
 
 allwinner A10 芯片上电启动的时候，会读取SD卡最前面的 1M 内容，从得到 bootloader，   
 所以我们需要把 u-boot 、spl/sunxi-spl.bin 写到SD卡的前1M区间。
@@ -55,7 +55,7 @@ allwinner A10 芯片上电启动的时候，会读取SD卡最前面的 1M 内容
 		
 		sfdisk -R /dev/sdb								# 重新读取/dev/sdb，因为我们已经改变了sdb
 		
-		cat <<EOT | sfdisk -uM /dev/sdb 					# 对sd卡进行分区，具体请参照sfdisk命令手册
+		cat <<EOT | sfdisk -uM /dev/sdb 				# 对sd卡进行分区，具体请参照sfdisk命令手册
 		1,16,c 											# 从SD卡的1M处开始，划分16M长度为第一个分区
 		18,,L 											# 余下的空间为第二个分区 (参考网站上使用的是 17,,L，这是错误的，重叠了)
 		EOT
@@ -97,7 +97,7 @@ allwinner A10 芯片上电启动的时候，会读取SD卡最前面的 1M 内容
 
 	*把 boot.scr 拷贝到sd卡的第一个分区*
 
-			cp boot.scr /mnt/								# 之前我们已经把 /dev/sdb1 挂载在 /mnt 上
+		cp boot.scr /mnt/								# 之前我们已经把 /dev/sdb1 挂载在 /mnt 上
 
 *	关于 uEnv.txt
 	

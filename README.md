@@ -40,10 +40,9 @@ Cubieboard arm-linux 移植
 3、制作可启动的SD卡
 -------------------
 
-参考自：
- 
-	>http://linux-sunxi.org/Bootable_SD_card  
-	>http://linux-sunxi.org/FirstSteps
+参考自:   
+	[wiki]:http://linux-sunxi.org/Bootable_SD_card   
+	[wiki]:http://linux-sunxi.org/FirstSteps
 
 allwinner A10 芯片上电启动的时候，会读取SD卡最前面的 1M 内容，从得到 bootloader，   
 所以我们需要把 u-boot 、spl/sunxi-spl.bin 写到SD卡的前1M区间。
