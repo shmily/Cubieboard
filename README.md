@@ -5,10 +5,12 @@ Cubieboard arm-linux 移植
 --------------
 
 获取Cubieboard的u-boot源代码
+	
 	git clone https://github.com/linux-sunxi/u-boot-sunxi.git --depth=1
 
-编译u-boot，得到 u-boot 、spl/sunxi-spl.bin
+编译u-boot，得到 u-boot 、spl/sunxi-spl.bin 
 在 board/allwinner/ 目录下有该芯片对应的不同配置，我们使用的是cubieboard
+	
 	make cubieboard CROSS_COMPILE=arm-linux-gnueabihf-
 
 
@@ -26,10 +28,11 @@ Cubieboard arm-linux 移植
 得到 fex2bin 文件，这个是能把 *.fex 文件生成 *.bin文件。
 
 下载sunxi-boards源码，得到cubieboard对于的fex文件
+	
 	git clone https://github.com/linux-sunxi/sunxi-boards.git --depth=1
 	cd sunxi-boards
 
-在 sys_config/a10 目录下，我们能找到 cubieboard_1gb.fex 文件，这就是我们需要的 
+在 sys_config/a10 目录下，我们能找到 cubieboard_1gb.fex 文件，这就是我们需要的  
 编译，得到 script.bin
 
 	fex2bin cubieboard_1gb.fex script.bin
@@ -38,6 +41,7 @@ Cubieboard arm-linux 移植
 -------------------
 
 参考自：
+		
 		http://linux-sunxi.org/Bootable_SD_card
 		http://linux-sunxi.org/FirstSteps
 
