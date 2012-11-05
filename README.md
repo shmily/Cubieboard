@@ -52,6 +52,7 @@ allwinner A10 芯片上电启动的时候，会读取SD卡最前面的 1M 内容
 
 *	对SD卡进行分区处理
 
+	<code>
 	dd if=/dev/zero of=/dev/sdb bs=1M count=1 		# 把SD卡前1M的区域填充为0，预留给 u-boot 和 spl/sunxi-spl.bin
 
 	sfdisk -R /dev/sdb								# 重新读取/dev/sdb，因为我们已经改变了sdb
@@ -63,6 +64,7 @@ allwinner A10 芯片上电启动的时候，会读取SD卡最前面的 1M 内容
 
 	mkfs.vfat /dev/sdb1								# 格式化为fat
 	mkfs.ext4 /dev/sdb2 							# 格式化为ext4
+	</code>
 
 *	写入 bootloader
 	
